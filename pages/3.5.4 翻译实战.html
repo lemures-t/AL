@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>3.5.4 翻译实战</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="../css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/stylesheet.css" rel="stylesheet">
+	<style>
+		
+	</style>
+</head>
+<body>
+<nav class="navbar top-navigation al-navbar">
+  	<div class="navbar-header">
+  		<a href="#" class="al-nav-back navbar-brand">
+  			<span class="fa fa-home fa-2x"></span>
+  		</a>
+  		<a href="#" class="al-nav-back navbar-brand">
+  			<span class="fa fa-puzzle-piece fa-2x"></span>
+  		</a>
+ 	</div>
+	<div class="navbar-text al-nav-block al-circle-progress">
+		<span class="al-lable-text">长难句练习：</span>
+		<div class="circle active"></div>
+		<div class="circle active"></div>
+		<div class="circle active"></div>
+		<div class="circle"></div>
+		<div class="circle"></div>
+	</div>
+	<div class="navbar-text al-nav-block" id="time">
+		已用时：<span>1小时32分</span>
+	</div>
+    <div class="navbar-right">
+    	<button class="btn btn-primary navbar-btn">单词本</button>
+    	<button class="btn btn-primary navbar-btn">练习本</button>
+    	<button class="btn btn-primary navbar-btn">笔记本</button>
+    	<span> | </span>
+    	<button class="btn btn-primary btn-outline">个人设置</button>
+    </div>
+</nav>
+
+<div class="container clearfix">
+
+<div class="alert alert-info alert-dismissable">
+	<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+   请点击下方的按钮开始长难句的练习
+</div>
+<div class="ibox source-language">
+	<div class="ibox-title">
+		<h4>英文原句</h4>
+	</div>
+	<div class="ibox-content">
+		When Hoffa’s Teamsters were in their prime in 1960, only one in ten American government workers belonged to a union; now 36% do.
+	</div>
+</div>
+<div class="ibox translate" style="visibility:hidden">
+	<div class="ibox-title">
+		<h4>你的译文</h4>
+	</div>
+	<div class="ibox-content">
+		<textarea id="user_input" style="width:100%;resize:none;border:none;padding:20px 50px;" placeholder="请输入你的译文" autofocus></textarea>
+	</div>
+</div>
+<div class="ibox reference" style="visibility:hidden">
+	<div class="ibox-title">
+		<h4>参考译文</h4>
+	</div>
+	<div class="ibox-content">
+		When Hoffa’s Teamsters were in their prime in 1960, only one in ten American government workers belonged to a union; now 36% do.
+	</div>
+</div>
+<div style="text-align:center" id='btn_group'>
+	<button class="btn btn-primary" id="understand">懂</button>
+	<button class="btn btn-primary" id="dl">深入学习</button>
+	<button class="btn btn-primary" id="favourite">+收藏</button>
+</div>
+
+<!-- end wrapper--!>
+<!-- Mainly scripts -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="js/plugins/flot/jquery.flot.js"></script>
+<script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+<script src="js/plugins/flot/jquery.flot.resize.js"></script>
+<script src="js/plugins/flot/jquery.flot.pie.js"></script>
+<script src="js/plugins/flot/jquery.flot.time.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+
+<script type='text/javascript'>
+	
+var btn_group = document.getElementById('btn_group'),
+	translate = document.querySelector('.translate'),
+	reference = document.querySelector('.reference'),
+	handler = function(event){
+		var e = event || window.event,
+			target = e.target || e.srcElement;
+		switch (target.id){
+			case 'understand':
+				
+				if(target.innerHTML=="对答案"){
+					reference.style.visibility="visible";
+					target.innerHTML="下一句";
+					var input = document.getElementById('user_input');
+					alert('显示' + input.value + '的differ');
+				}
+				else if(target.innerHTML=="懂") {
+					translate.style.visibility='visible';
+					target.innerHTML="对答案";
+				}
+				else {
+					alert('下一长难句');
+				}
+
+				break;
+			case 'dl':
+				alert('跳转到长难句深入学习页面')
+				break;
+			case 'favourite':
+				alert('加入收藏夹')
+				break;
+		}
+	};
+
+if (window.addEventListener){
+	btn_group.addEventListener("click",handler,false);
+}
+else if (window.attachEvent){
+	btn_gourp.attachEvent("onclick",handler);
+}
+
+
+</script>
+
+</body>
+</html>

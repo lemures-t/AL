@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>二级页面Demo</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="../css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+	<style>
+		#module li.active, #module li a:hover{
+			background-color:transparent;
+		}
+		#module li.active{
+			font-weight:bold;
+		}
+		#time span{
+			color:#1ab394;
+		}
+		#time {
+			font-weight:600;
+			line-height:20px;
+			margin-left:30px;
+		}
+		.wrapper{
+			/*width:1024px;*//*是否要设计*/
+			margin:0 auto 20px 0;
+
+		}
+		#home{
+			padding:5px 10px;
+			margin-right:10px;
+		}
+		#schedule .panel-body ul>li{
+			list-style:none;
+			display:inline-block;
+		}
+
+		.progress{
+			background-color:#FFFFFF;
+			height:15px;
+		}
+		/*全局 css 自定义*/
+		body{
+			background-color:#f3f3f4;
+		}
+		.left{
+			float:left;
+		}
+		.right{
+			float:right;
+		}
+		.clearfix:after{
+			content:"";
+			display:block;
+			visibility:hidden;
+			height:0;
+			clear:both;
+		}
+		.content-wrapper{
+			border:1px solid #1ab394;
+			border-radius:3px;
+			padding:10px;
+		}
+		.al-row{
+			margin-bottom:15px; /*@row-marging:20px*/;
+		}
+		#sec_navbar{
+			background-color:#FFFFFF;
+			border-bottom:1px solid #e3e3e4;
+			border-radius:0px;
+		}
+		#sec_navbar .navbar-brand{
+			color:#1ab394;
+			background-color:#FFFFFF;
+		}
+		.panel-body .row{
+			margin-bottom:10px;
+		}
+		/*overwrite default css setting*/
+		.alert{
+			padding: 5px 15px; /*15px*/
+			margin-bottom:5px; /*widge originally contains 10px margin*/
+		}
+		.alert-dismissable .close{
+			right:-5px;
+		}
+		.switch-tab{
+			margin-bottom:5px;
+		}
+		.h2{
+			font-size:24px;
+		}
+		.widget .h2{
+			margin-top: 5px;
+			margin-bottom: 0;
+		}
+		.switch-tab .todo-num{
+			position:relative;
+			top:-35px;
+			right:-80px;
+			font-size:14px;/*overwrite*/
+			min-width:25px;
+		}
+		.switch-tab .todo-num-2{
+			position:relative;
+			top:-3px;
+		}
+	</style>
+</head>
+<body>
+<nav class="navbar top-navigation" id="sec_navbar">
+  	<div class="navbar-header">
+  		<a href="#" class="navbar-brand" id="home">
+  			<span class="fa fa-home fa-2x"></span>
+  		</a>
+ 	</div>
+    <ul class="nav navbar-nav" id="module">
+	 	<li class="active"><a href="##">词汇</a></li>
+        <li><a href="##">阅读与完型</a></li>
+        <li><a href="##">长难句与翻译</a></li>
+        <li><a href="##">写作与背诵</a></li>
+	</ul>
+	<div class="navbar-text" id="time">
+		已学时长：<span>1小时32分</span>
+	</div>
+    <div class="navbar-right">
+    	<button class="btn btn-primary navbar-btn">单词本</button>
+    	<button class="btn btn-primary navbar-btn">练习本</button>
+    	<button class="btn btn-primary navbar-btn">笔记本</button>
+    	<span> | </span>
+    	<button class="btn btn-primary btn-outline">个人设置</button>
+    </div>
+</nav>
+
+<div class="container clearfix">
+
+<div class="alert alert-info alert-dismissable">
+	<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+    提示与帮助信息:可以点击右下角的“开始学习”按钮，按序学习；或点击“今天计划”上方的任务按钮查看具体任务。
+</div>
+
+<div class="row switch-tab">
+	<div class="col-md-3">
+		<div class="widget navy-bg">
+			<div class="row">
+				<div class="col-md-4">
+					<span class="fa fa-bookmark fa-3x"></span>
+				</div>
+				<div class="col-md-8 text-right h2">
+					<span>学单词</span>
+					<span class="label label-warning todo-num-2">4</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="widget navy-bg">
+			<div class="row">
+				<div class="col-md-4">
+					<span class="fa fa-file-word-o fa-3x"></span>
+				</div>
+				<div class="col-md-8 text-right h2">
+					<span class="badge badge-warning todo-num">4</span>
+					<span>炼句型</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="widget navy-bg">
+			<div class="row">
+				<div class="col-xs-4">
+					<span class="fa fa-file-word-o fa-4x"></span>
+				</div>
+				<div class="col-xs-8 text-right">
+					<h2>读与写</h2>
+					待完成：<span style="font-weight:bold;color:#f8ac59">4</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="widget navy-bg">
+			<div class="row">
+				<div class="col-xs-4">
+					<span class="fa fa-file-word-o fa-4x"></span>
+				</div>
+				<div class="col-xs-8 text-right h2" style="margin-top:15px">
+					<span>背佳作</span>
+					<span class="label label-warning todo-num-2">4</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="panel panel-primary al-row" id="schedule">
+	<div class="panel-heading">
+    	今日任务摘要
+	</div>
+	<div class="panel-body">
+    	<p>你有如下任务需要完成</p>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="alert alert-success">
+                	<h4><span class="font-bold"> 20 </span>个单词</h4>
+                	<ul>
+                		<li>Lorem</li>
+                		<li>ipsum</li>
+                		<li>dolor</li>
+                		<li>sit</li>
+                		<li>...</li>
+                	</ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="alert alert-success">
+                	<h4><span class="font-bold"> 10 </span>个句型</h4>
+                	<ul>
+                		<li>Lorem ipsum ... dolor sit</li>
+                	</ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="alert alert-success">
+                	<h4><span class="font-bold"> 1 </span>篇写作</h4>
+                	<ul>
+                		<li>Lorem ipsum ... dolor sit</li>
+                	</ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+	            <div class="alert alert-success">
+	            	<h4><span class="font-bold"> 1 </span>篇背诵</h4>
+	            	<ul>
+	            		<li>人生道路的选择</li>
+	            	</ul>
+	            </div>
+        	</div>
+		</div>
+    	<div>
+    		<p style="color:#1ab394">不用担心，胜利就在前方！！</p>
+    		<button class="btn btn-primary right" type="button">开始学习</button>
+    	</div>
+
+	</div>
+</div>
+<div class="row al-row">
+	<div class="col-md-4">
+		<div class="content-wrapper" style="min-height:275px">
+			<h2>勋章墙</h2>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="content-wrapper">
+		<div>
+			<div class="clearfix">
+				<h5 class="left">单词</h5>
+				<h5 class="right">12/23个</h5>
+			</div>
+			<div class="progress progress-bar-default">
+				<div style="width: 49%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="43" role="progressbar" class="progress-bar">
+	                <span class="sr-only">43% Complete (success)</span>
+	            </div>
+	        </div>
+        </div>
+        <div>
+			<div class="clearfix">
+				<h5 class="left">句型</h5>
+				<h5 class="right">10/30个</h5>
+			</div>
+			<div class="progress progress-bar-default">
+				<div style="width: 30%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="43" role="progressbar" class="progress-bar">
+	                <span class="sr-only">43% Complete (success)</span>
+	            </div>
+	        </div>
+        </div>
+        <div>
+			<div class="clearfix">
+				<h5 class="left">写作</h5>
+				<h5 class="right">2/3篇</h5>
+			</div>
+			<div class="progress progress-bar-default">
+				<div style="width: 66%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="43" role="progressbar" class="progress-bar">
+	                <span class="sr-only">43% Complete (success)</span>
+	            </div>
+	        </div>
+        </div>
+        <div>
+			<div class="clearfix">
+				<h5 class="left">背诵</h5>
+				<h5 class="right">1/2篇</h5>
+			</div>
+			<div class="progress progress-bar-default">
+				<div style="width: 50%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="43" role="progressbar" class="progress-bar">
+	                <span class="sr-only">43% Complete (success)</span>
+	            </div>
+	        </div>
+        </div>
+    	</div>
+	</div>
+	<div class="col-md-4">
+		<div class="content-wrapper" style="min-height:275px">
+		<h2>统计图</h2>
+		</div>
+	</div>
+</div>
+<div class="row al-row">
+	<div class="col-md-6">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+	    		复习指南
+			</div>
+			<div class="panel-body">
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+	    		名师点拨
+			</div>
+			<div class="panel-body">
+				Video
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- end wrapper--!>
+<!-- Mainly scripts -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="js/plugins/flot/jquery.flot.js"></script>
+<script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+<script src="js/plugins/flot/jquery.flot.resize.js"></script>
+<script src="js/plugins/flot/jquery.flot.pie.js"></script>
+<script src="js/plugins/flot/jquery.flot.time.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+
+
+<div>
+	<div><p class="fa fa-language fa-4x">翻译</p></div>
+	
+	<!-- <div><p class="fa fa-paragraph fa-4x">阅读</p></div> -->
+	<div><p class="fa fa-dedent fa-4x">阅读</p></div>
+	<div><p class="fa fa-puzzle-piece fa-4x">长难句</p></div>
+	<div><p class="fa fa-leaf fa-4x">词汇</p></div>
+	<div><p class="fa fa-search fa-4x">查字典</p></div>
+	
+	<div><p class="fa fa-bookmark fa-4x">笔记本</p></div>
+	<div><p class="fa fa-book fa-4x">单词本</p></div>
+	<div><p class="fa fa-pencil-square-o fa-4x">写作</p></div>
+</div>
+
+
+</body>
+</html>
